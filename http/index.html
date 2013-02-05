@@ -1,25 +1,38 @@
 <html>
   <button id="redirect">Redirect</button>
+  <button id="showURL">Show URL</button>
+  <p id="textURL">Outer URL will appear here</p>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 <script src="//cdn.jsdelivr.net/easyxdm/2.4.17.1/easyXDM.js"></script> 
 <script type="text/javascript">
 scraperwiki = { tool: {} }
 // This is the provider side of XDM. we think.
-scraperwiki.tool.redirect = function(location) {
-  var xhr = new easyXDM.Rpc({
+scraperwiki.xdm = new easyXDM.Rpc({
   }, {
     remote: {
-      // redirect is the name of a method implemented by custard
+      // redirect and get URL are the names of methods implemented
+      // by custard
       redirect: {}
+      getURL: {}
     }
   });
-  xhr.redirect(location)
+scraperwiki.tool.redirect = function(location) {
+  xdm.redirect(location)
+}
+scraperwiki.tool.getURL = function(cb) {
+  xdm.getURL(cb)
 }
 
 $(function(){
   $('#redirect').on('click', function(){
     scraperwiki.tool.redirect('/')
-  })
+  });
+  $('#showURL').on('click', function(){
+    scraperwiki.tool.getURL(function(url){
+      $('#textURL').text(url)
+    });
+  });
+
 })
 </script>
 </html>
