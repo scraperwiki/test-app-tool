@@ -3,24 +3,14 @@
   <button id="showURL">Show URL</button>
   <p id="textURL">Outer URL will appear here</p>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="//cdn.jsdelivr.net/easyxdm/2.4.17.1/easyXDM.js"></script> 
 <script type="text/javascript">
 scraperwiki = { tool: {} }
-// This is the provider side of XDM. we think.
-scraperwiki.xdm = new easyXDM.Rpc({
-  }, {
-    remote: {
-      // redirect and get URL are the names of methods implemented
-      // by custard
-      redirect: {},
-      getURL: {}
-    }
-  });
+// Call container iframe's API
 scraperwiki.tool.redirect = function(location) {
-  scraperwiki.xdm.redirect(location)
+  parent.scraperwiki.xdm.redirect(location)
 }
 scraperwiki.tool.getURL = function(cb) {
-  scraperwiki.xdm.getURL(cb)
+  parent.scraperwiki.xdm.getURL(cb)
 }
 
 $(function(){
