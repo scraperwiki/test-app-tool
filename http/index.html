@@ -17,10 +17,10 @@ scraperwiki.xdm = new easyXDM.Rpc({
     }
   });
 scraperwiki.tool.redirect = function(location) {
-  xdm.redirect(location)
+  scraperwiki.xdm.redirect(location)
 }
 scraperwiki.tool.getURL = function(cb) {
-  xdm.getURL(cb)
+  scraperwiki.xdm.getURL(cb)
 }
 
 $(function(){
