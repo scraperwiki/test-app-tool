@@ -7,8 +7,11 @@
 <script type="text/javascript">
 
 $(function(){
-  $('#redirect').on('click', function(){
+  $('#redirectInternal').on('click', function(){
     scraperwiki.tool.redirect('/')
+  });
+  $('#redirectExternal').on('click', function(){
+    scraperwiki.tool.redirect('http://www.google.com/')
   });
   $('#showURL').on('click', function(){
     scraperwiki.tool.getURL(function(url){
