@@ -13,7 +13,6 @@
     <button class="btn" id="sqlmetadata">Get SQL metadata</button>
   </p>
   <p id="textURL" style="margin: 10px;">Outer URL will appear here</p>
-  <p id="sqlMetaDataText" style="margin: 10px;">Some JSON will appear here, you hope.</p>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="//x.scraperwiki.com/vendor/js/bootstrap.min.js"></script>
   <script src="//x-dev.scraperwiki.com/js/scraperwiki.js"></script>
@@ -38,7 +37,7 @@
   $('#sqlmetadata').on('click', function(){
       scraperwiki.exec("rm ~/scraperwiki.sqlite;sqlite3 scraperwiki.sqlite 'CREATE TABLE SurLeTable (a, b, c); CREATE VIEW VoirLeLapin AS SELECT 1;'").success(function() {
         scraperwiki.sql.meta(function(obj){
-          $('#sqlMetaDataText').text(JSON.stringify(obj));
+          $('body').append('<p id="sqlMetaDataText">' + JSON.stringify(obj) + '</p>');
         })
      })
   })
