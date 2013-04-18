@@ -40,7 +40,7 @@
   $('#sqlmetadata').on('click', function(){
       scraperwiki.exec("rm ~/scraperwiki.sqlite;sqlite3 scraperwiki.sqlite 'CREATE TABLE SurLeTable (a, b, c); CREATE VIEW VoirLeLapin AS SELECT 1;'").success(function() {
         scraperwiki.sql.meta(function(obj){
-          $('body').append('<p id="sqlMetaDataText">' + JSON.stringify(obj) + '</p>');
+          $('.container').append('<p id="sqlMetaDataText">' + JSON.stringify(obj) + '</p>');
         })
      })
   })
