@@ -15,6 +15,7 @@
       <button class="btn" id="sqlpush">SQL push</button>
     </p>
     <p id="textURL" style="margin: 10px;">Outer URL will appear here</p>
+    <p id="datasetName" style="margin: 10px;">Datset name should appear here</p>
   </div>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
   <script src="//beta.scraperwiki.com/vendor/js/bootstrap.min.js"></script>
@@ -46,6 +47,9 @@
   })
   $('#sqlpush').on('click', function(){
     scraperwiki.tool.pushSQL('SELECT 1', 'test-push')
+  })
+  $('#getDatasetName').on('click', function(){
+    $('#datasetName').text(scraperwiki.readSettings().target.displayName)
   })
   </script>
 </body>
