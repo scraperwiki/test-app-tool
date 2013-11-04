@@ -45,7 +45,8 @@
   })
   $('#getuserdetails').on('click', function(){
     scraperwiki.user.profile(function(userDetails){
-      $('#textUserDetails').text(userDetails.shortName + ', ' + userDetails.displayName)
+      $('#textUserDetails').text('real: ' + userDetails.real.shortName + ', ' + userDetails.real.displayName +
+                                 'effective: ' + userDetails.effective.shortName + ', ' + userDetails.effective.displayName)
     })
   })
   $('#alert').on('click', function(){
