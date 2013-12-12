@@ -1,5 +1,6 @@
 {
   "displayName": "Test App",
-  "gitUrl": "https://github.com/scraperwiki/test-app-tool.git",
-  "description": "ScraperWiki tool for testing ScraperWiki itself"
+  "description": "ScraperWiki tool for testing ScraperWiki itself",
+  "icon": "https://s3-eu-west-1.amazonaws.com/sw-icons/tool-icon-test.png",
+  "color": "#b0df18"
 }
